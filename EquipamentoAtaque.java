@@ -8,6 +8,7 @@ public class EquipamentoAtaque {
     private Object ataque2;
 
 
+    // Construtor
     public EquipamentoAtaque(String nome, int bonusAtk, Object atk1, Object atk2) {
         this.nome = nome;
         this.bonusAtaque = bonusAtk;

@@ -14,7 +14,6 @@ public class Personagem {
     Inimigo soldado = new Inimigo("Soldade", 30);
 
 
-
     //constructor
     public Personagem(String n){
       this.name = n;

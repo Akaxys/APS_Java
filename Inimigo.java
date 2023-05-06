@@ -8,6 +8,7 @@ public class Inimigo {
     private int dificuldade;
 
 
+    
         // Construtor
     public Inimigo(String nome, int pv){
         this.name = nome;

@@ -10,6 +10,10 @@ public class Defesa {
     private String fraseFalha;
 
     Scanner teclado = new Scanner(System.in);
+    static Personagem player = JavaQuest.getPlayer();
+    static Inimigo inimigo = JavaQuest.getEnemy();
+ 
+
 
         // Construtor
         public Defesa(String nome, int def, int vigor, int probabilidade, String sucesso, String falha) {
@@ -21,7 +25,7 @@ public class Defesa {
             this.fraseFalha = falha;
         }
 
-          
+
             // Nome
         public String getNome() {
             return nome;
@@ -70,60 +74,87 @@ public class Defesa {
             this.fraseFalha = frase;
         }
 
-        Defesa DefesaBasica = new Defesa("Defesa básica", 3, 1, 90, 
+
+
+        // TODOS as defesas
+        static Defesa defesaBasica = new Defesa("Defesa básica", 3, 1, 90, 
         "Concluiu a defesa com sucesso", "Fracassou na defesa!");
 
-        Defesa LevantarEscudo = new Defesa("Levantar Escudo", 5, 5, 75, 
+        static Defesa levantarEscudo = new Defesa("Levantar Escudo", 5, 5, 75, 
         "Lorax levantou o escudo no tempo certo", "Lorax não levantou o escudo a tempo!");
 
-        Defesa Esquiva = new Defesa("Esquiva", 0, 1, 90, 
+        static Defesa esquiva = new Defesa("Esquiva", 0, 1, 90, 
         "Concluiu a esquiva com sucesso", "Lorax scorregou enquanto tentava esquivar!");
 
-        Defesa Barreira = new Defesa("Conjurar Barreira", 20, 10, 60, 
+        static Defesa barreira = new Defesa("Conjurar Barreira", 20, 10, 60, 
         "Lorax conjurou a barreira a tempo", "Lorax foi impedido de conjurar barreira!");
 
-        Defesa Meditação = new Defesa("Paz Interior", 50, 3, 10, 
-        "Lorax conseguiu meditar e se concentrar para o próximo ataque", "Lorax teve sua paz afetada e não conseguiu meditar!");
+        static Defesa meditacao = new Defesa("Paz Interior", 50, 3, 10, 
+        "Lorax conseguiu meditar e se concentrar para o próximo Defesa", "Lorax teve sua paz afetada e não conseguiu meditar!");
 
-        Defesa BarreiraAvançada = new Defesa("Conjurar Muralha", 30, 17, 60, 
+        static Defesa barreiraAvancada = new Defesa("Conjurar Muralha", 30, 17, 60, 
         "Lorax conjurou a barreira com perfeição!", "Lorax se atrapalhou durante o processo!");
 
-        Defesa ArmaduraAvançado = new Defesa("Armadura Militar", 18, 9, 80, 
+        static Defesa armaduraAvancada = new Defesa("Armadura Militar", 18, 9, 80, 
         "A nanotecnologia agiu com eficácia", "A nanotecnologia não foi ativada rapidamente");
 
-        Defesa DefesaMágica = new Defesa("Proteção Mágica", 15, 8, 85, 
+        static Defesa defesaMagica = new Defesa("Proteção Mágica", 15, 8, 85, 
         "Lorax agiu como um mago profissional!", "Lorax esqueceu as palavrinhas mágicas!");
 
-        Defesa DefesaRapidaAvançada = new Defesa("Movimentos Agéis", 36, 18, 70, 
+        static Defesa defesaRapidaAvancada = new Defesa("Movimentos Agéis", 36, 18, 70, 
         "Lorax foi agil e concluiu a defesa com sucesso", "Lorax caiu envergonhosamente enquanto tentava se defender!");
 
-        Defesa Juggernaut = new Defesa("Esfera de proteção", 40, 12, 60, 
-        "Esfera de proteção criada com successo", "Não conseguiu resistir ao ataque!");
-
-        // Defesas Lendárias 
-        Defesa AuraCosmica = new Defesa("Proteção Estelar", 80, 10, 80, 
+        static Defesa juggernaut = new Defesa("Esfera de proteção", 40, 12, 60, 
+        "Esfera de proteção criada com successo", "Não conseguiu resistir ao Defesa!");
+ 
+        static Defesa auraCosmica = new Defesa("Proteção Estelar", 80, 10, 80, 
         "Lorax se defendeu com sucesso", "Lorax não conseguiu carregar a aura a tempo!");
 
-        Defesa ArmaduraEspectral = new Defesa("Defesa Espectral", 70, 15, 85, 
+        static Defesa armaduraEspectral = new Defesa("Defesa Espectral", 70, 15, 85, 
         "Lorax convocou espectros suficientes para a defesa", "Não conseguiu convocar espectros suficientes para a defesa!");
 
-        Defesa KryptoDefesa = new Defesa("Krypto Defesa", 60, 10, 90, 
+        static Defesa kryptoDefesa = new Defesa("Krypto Defesa", 60, 10, 90, 
         "A Kryptonita agiu perfeitamente!", "A armadura crypto atrapalhou na defesa de Lorax!");
 
-        Defesa Exoesqueleto = new Defesa("Imunidade Subatômica", 75, 10, 85, 
+        static Defesa exoesqueleto = new Defesa("Imunidade Subatômica", 75, 10, 85, 
         "O exosqueleto agiu com eficácia", "O exoesqueleto não o deixou vulneravel a tempo!");
 
-        Defesa Netherite = new Defesa("Blindagem de Netherite", 75, 15, 95, 
-        "A blindagem de Netherite  defendeu o ataque", "Lorax não percebeu o ataque!");
+        static Defesa netherite = new Defesa("Blindagem de Netherite", 75, 15, 95, 
+        "A blindagem de Netherite  defendeu o Defesa", "Lorax não percebeu o Defesa!");
 
         
-        public static ArrayList<Object> Defesa = new ArrayList<Object>();
+        
+        public static ArrayList<Defesa> Defesa = new ArrayList<>(Arrays.asList(defesaBasica, levantarEscudo, esquiva, barreira, 
+        meditacao, barreiraAvancada, armaduraAvancada, defesaMagica, defesaRapidaAvancada, juggernaut, auraCosmica, armaduraEspectral,
+        kryptoDefesa, exoesqueleto, netherite));
 
-        public static ArrayList<Object> DefesaPlayer = new ArrayList<Object>();
+        public static ArrayList<Defesa> DefesasPlayer = new ArrayList<>(Arrays.asList(defesaBasica, levantarEscudo, esquiva));
 
-        public static ArrayList<Object> DefesaInimigo = new ArrayList<Object>();
+        public static ArrayList<Object> DefesasInimigos = new ArrayList<Object>();
 
 
+        // Métodos para mexer nas ArrayLists 
+      public static void adicionarDefesasPlayer(Defesa x){
+        DefesasPlayer.add(x);
+     }
+
+     public static void limparDefesasInimigos(){
+        DefesasPlayer.clear();
+     }
+
+     public static void adicionarDefesasInimigos(Defesa x, Defesa y, Defesa z){
+        DefesasInimigos.add(x);
+        DefesasInimigos.add(y);
+        DefesasInimigos.add(z);
+     }
+
+     public static void adicionarDefesasInimigos(Defesa v, Defesa w, Defesa x, Defesa y, Defesa z){
+        DefesasInimigos.add(v);
+        DefesasInimigos.add(w);
+        DefesasInimigos.add(x);
+        DefesasInimigos.add(y);
+        DefesasInimigos.add(z);
+     }
 
         
 }
