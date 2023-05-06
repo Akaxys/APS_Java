@@ -8,6 +8,8 @@ public class JavaQuest {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\tBem-Vindo(a) ao JavaQuest!");
 
+        System.out.println("A última arvore corre perigo, se apresse para salva-la!");
+
         System.out.println("Digite o nome do seu personagem: ");
         String nome_player = scanner.nextLine();
 
