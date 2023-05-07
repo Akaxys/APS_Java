@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Personagem {
     private String name;
     private int vida;
@@ -11,9 +9,7 @@ public class Personagem {
     private int pocaoMana = 3;
 
 
-    Inimigo soldado = new Inimigo("Soldade", 30);
-
-
+    
     //constructor
     public Personagem(String n){
       this.name = n;
@@ -23,7 +19,8 @@ public class Personagem {
     }
 
     
-        // Nome
+
+    // Nome
     public String getNome() {
         return name;
     }
@@ -31,7 +28,7 @@ public class Personagem {
         this.name = nome; 
     }
 
-        // Vida
+    // Vida
     public int getVida() {
         return vida;
     }
@@ -39,7 +36,7 @@ public class Personagem {
         this.vida = pv; 
     }
 
-        // Mana
+    // Mana
     public int getMana() {
         return mana;
     }
@@ -47,7 +44,7 @@ public class Personagem {
         this.mana = pm;
     }
 
-        // Vigor 
+    // Vigor 
     public int getVigor() {
         return vigor;
     }
@@ -55,7 +52,7 @@ public class Personagem {
         this.vigor = vig;
     }
 
-        // Bonus Ataque
+    // Bonus Ataque
     public int getbonusAtaque() {
         return bonusAtaque;
     }
@@ -63,7 +60,7 @@ public class Personagem {
         this.bonusAtaque += bonusAtaque; 
     }
 
-        // Bonus Defesa
+    // Bonus Defesa
     public int getbonusDefesa() {
         return bonusDefesa;
     }
@@ -71,7 +68,7 @@ public class Personagem {
         this.bonusDefesa += bonusDefesa; 
     }
 
-        // Poção de Cura
+    // Poção de Cura
     public int getPocaoCura() {
         return pocaoCura;
     }
@@ -79,7 +76,7 @@ public class Personagem {
         this.pocaoCura = gastPocao;
     }
 
-        // Poção de Mana
+    // Poção de Mana
     public int getPocaoMana() {
         return pocaoMana;
     }
