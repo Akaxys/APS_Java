@@ -7,7 +7,7 @@ public class JavaQuest {
     public static Inimigo enemy;
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("\tBem-Vindo(a) ao JavaQuest!");
@@ -19,14 +19,14 @@ public class JavaQuest {
       
         player = new Personagem(nome_player);
         player.setVida(30);
-        player.setMana(30);
+        player.setMana(10);
         player.setVigor(30);
         enemy = new Inimigo("Soldado", 30);
 
         // ------------------------------------------------------------------------------ //
 
-
-        Combate.turnoAliado();
+        Ataque.adicionarAtaquesInimigos(Ataque.Investida, Ataque.flecha, Ataque.chute);
+        Combate.TurnoInimigo();
 
 
         scanner.close();

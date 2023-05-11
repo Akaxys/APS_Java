@@ -56,15 +56,14 @@ public class EquipamentoDefesa {
     public static EquipamentoDefesa armaduraNetherite= new EquipamentoDefesa("Armadura de Netherithe", 10, Defesa.netherite);
     public static EquipamentoDefesa armaduraKripto= new EquipamentoDefesa("ArmaduraKripto", 10, Defesa.kryptoDefesa);
     public static EquipamentoDefesa armaduraExoesqueleto= new EquipamentoDefesa("Armadura de Exoesqueleto Energizado", 10, Defesa.exoesqueleto);
-    
+
 
     // ArrayList de equipamentos de Defesa
     public static List<EquipamentoDefesa> EquipamentosDefesa = new ArrayList<>(Arrays.asList(bracadeiraCouro, escudoCorpo, capaceteTatico,
     trajeMonge, peitoralFerro, nanoColete, armaduraAntiBomba, armaduraEncantada, mantoLadino, ombreirasGladiador, armaduraCosmica, armaduraEspectral,
     armaduraNetherite, armaduraNetherite, armaduraExoesqueleto));
 
-    
-    
+
 }
 
 

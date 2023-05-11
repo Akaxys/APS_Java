@@ -35,6 +35,9 @@ public class Personagem {
     public void setVida(int pv) {
         this.vida = pv; 
     }
+    public void setVida(int pv, int reduce){
+        this.vida = pv - reduce;
+    }
 
     // Mana
     public int getMana() {

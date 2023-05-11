@@ -27,6 +27,9 @@ public class Inimigo {
     public void setVida(int pv){
         this.vida = pv;
     }
+    public void setVida(int pv, int reduce){
+        this.vida = pv - reduce;
+    }
 
         // Bonus Ataque
     public int getbonusAtaque() {
