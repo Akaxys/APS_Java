@@ -80,7 +80,7 @@ public class Ataque {
       public static Ataque rasteira = new Ataque("Rasteira rápida", 6, 1, 75,
       JavaQuest.player.getNome() + " acabou escorregando ao atacar " + JavaQuest.player.getNome(), "errou o rasteira otario.");
 
-      public static Ataque chute = new Ataque("Chute concentrado", 8, 4, 60,
+      public static Ataque chute = new Ataque("Chute concentrado", 8, 4, 70,
       JavaQuest.player.getNome() + " acertou um chute nas costelas do " + JavaQuest.player.getNome(),"errou o chute otario");
 
       public static Ataque tiro = new Ataque("Tiro", 11, 7, 50,
@@ -181,17 +181,17 @@ public class Ataque {
          AtaquesPlayer.add(x);
       }
 
-      public static void limparAtaquesInimigos(){
-         AtaquesPlayer.clear();
-      }
-
-      public static void adicionarAtaquesInimigos(Ataque x, Ataque y, Ataque z){
+      public static void adicionarAtaquesInimigos(Ataque w, Ataque x, Ataque y, Ataque z){
+         AtaquesInimigos.clear();
+         AtaquesInimigos.add(w);
          AtaquesInimigos.add(x);
          AtaquesInimigos.add(y);
          AtaquesInimigos.add(z);
       }
 
-      public static void adicionarAtaquesInimigos(Ataque v, Ataque w, Ataque x, Ataque y, Ataque z){
+      public static void adicionarAtaquesInimigos(Ataque u, Ataque v, Ataque w, Ataque x, Ataque y, Ataque z){
+         AtaquesInimigos.clear();
+         AtaquesInimigos.add(u);
          AtaquesInimigos.add(v);
          AtaquesInimigos.add(w);
          AtaquesInimigos.add(x);

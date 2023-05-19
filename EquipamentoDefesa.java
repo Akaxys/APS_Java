@@ -60,9 +60,10 @@ public class EquipamentoDefesa {
 
     // ArrayList de equipamentos de Defesa
     public static List<EquipamentoDefesa> EquipamentosDefesa = new ArrayList<>(Arrays.asList(bracadeiraCouro, escudoCorpo, capaceteTatico,
-    trajeMonge, peitoralFerro, nanoColete, armaduraAntiBomba, armaduraEncantada, mantoLadino, ombreirasGladiador, armaduraCosmica, armaduraEspectral,
-    armaduraNetherite, armaduraNetherite, armaduraExoesqueleto));
+    trajeMonge, peitoralFerro, nanoColete, armaduraAntiBomba, armaduraEncantada, mantoLadino, ombreirasGladiador, armaduraNetherite));
 
+    public static List<EquipamentoDefesa> EquipamentosDefesaLendarios = new ArrayList<>(Arrays.asList(armaduraCosmica, armaduraEspectral,
+    armaduraNetherite, armaduraKripto, armaduraExoesqueleto));
 
 }
 

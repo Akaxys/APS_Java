@@ -9,7 +9,8 @@ public class Combate {
     static int opcaoEnemy;
     static int probabilidadePlayer;
     static int probabilidadeEnemy;
-
+    static String cura;
+    static String mana;
 
     // Turno do Personagem
     public static void turnoAliado() throws InterruptedException{
@@ -217,7 +218,7 @@ public class Combate {
 
             if (probabilidadeEnemy <= Ataque.AtaquesInimigos.get(opcaoEnemy).getProbabilidade()) {
                 
-                System.out.println(JavaQuest.enemy.getNome() + " usou o ataque" + Ataque.AtaquesInimigos.get(opcaoEnemy).getNome() + "que causa " + (Ataque.AtaquesInimigos.get(opcaoEnemy).getDano() + JavaQuest.enemy.getbonusAtaque()) + " de dano.");
+                System.out.println(JavaQuest.enemy.getNome() + " usou o ataque " + Ataque.AtaquesInimigos.get(opcaoEnemy).getNome() + " que causa " + (Ataque.AtaquesInimigos.get(opcaoEnemy).getDano() + JavaQuest.enemy.getbonusAtaque()) + " de dano.");
                 Thread.sleep(1000);
 
                 if (probabilidadePlayer <= Defesa.DefesasPlayer.get(opcaoPlayer).getProbabilidade()) {
@@ -251,6 +252,111 @@ public class Combate {
 
         }
 
+        Thread.sleep(1000);
+
     }
     
+
+
+    public static void PocaoCura(int limite) throws InterruptedException {
+
+        if ((JavaQuest.player.getVida() < 15) && (JavaQuest.player.getPocaoCura() > 0)) {
+            System.out.println("Sua vida está baixa. Deseja usar uma poção de Cura? [S/N]");
+
+            while (true) {
+                cura = teclado.next().toUpperCase();
+                
+                if (cura.equals("S")) {
+                    System.out.println("Sua vida foi regenerada!");
+                    JavaQuest.player.setVida(limite);
+                    JavaQuest.player.setPocaoCura((JavaQuest.player.getPocaoCura() - 1));
+                    break;
+                }
+
+                else if (cura.equals("N") ) {
+                    System.out.println("Sua vida continua baixa! Tome cuidado!");
+                    break;
+                }
+
+                else {
+                    System.out.println("Comando Inválido.");
+                }
+            }
+        }
+
+        else if ((JavaQuest.player.getVida() < 15) || (JavaQuest.player.getPocaoCura() == 0)) {
+            System.out.println(JavaQuest.player.getNome() + ", sua vida está baixa mas você não tem poções de cura.");
+        }
+
+        Thread.sleep(1500);
+    
+    }
+
+
+
+    public static void PocaoMana(int limite) throws InterruptedException {
+
+        if ((JavaQuest.player.getMana() < 9) && (JavaQuest.player.getPocaoMana() > 0)) {
+            System.out.println(JavaQuest.player.getNome() + " está com pouca mana, deseja usar uma poção de Mana?");
+
+            while (true) {
+                mana = teclado.next().toUpperCase();
+                
+                if (mana.equals("S")) {
+                    System.out.println("Sua mana foi regenerada!");
+                    JavaQuest.player.setMana(limite);
+                    JavaQuest.player.setPocaoMana((JavaQuest.player.getPocaoMana() - 1));
+                    break;
+                }
+
+                else if (mana.equals("N")) {
+                    System.out.println("Sua mana continua baixa! Seja forte!");
+                    break;
+                }
+
+                else {
+                    System.out.println("Comando Inválido.");
+                }
+            }
+        }
+
+        else if ((JavaQuest.player.getMana() < 10) && (JavaQuest.player.getPocaoMana() == 0)) {
+            System.out.println(JavaQuest.player.getNome() + ", sua mana está acabando mas acabaram suas poções.");
+        }
+
+        Thread.sleep(1500);
+
+    }
+
+
+
+    public static void Batalha(int turnos, int vidaMaximaPlayer, int manaMaximaPlayer) throws InterruptedException {
+
+
+        while (true) {
+
+            for (int i = 1; i <= turnos; i++) {
+                TurnoInimigo();
+            }
+            
+            JavaQuest.player.morte();
+            JavaQuest.player.fadiga();
+
+            PocaoCura(vidaMaximaPlayer);
+            PocaoMana(manaMaximaPlayer);
+           
+            turnoAliado();
+
+            if (JavaQuest.enemy.morte() == true) {
+                break;
+            }
+
+            else {
+                continue;
+            }
+
+        }
+
+    }
+
 }

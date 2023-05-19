@@ -6,6 +6,8 @@ public class EquipamentoAtaque {
     private int bonusAtaque;
     private Ataque ataque1;
     private Ataque ataque2;
+    static Random aleatorio = new Random();    
+
 
 
     // Construtor
@@ -49,30 +51,30 @@ public class EquipamentoAtaque {
         this.ataque2 = atk2;
     }
 
-
+    
     // Equipamentos de ATAQUES 
-    public static EquipamentoAtaque pistolaLaser = new EquipamentoAtaque("Pistola A Laser", 10, Ataque.tiroConcentrado, Ataque.tiroAvancado);
-    public static EquipamentoAtaque escopetaCanoSerrado = new EquipamentoAtaque("Escopeta de cano Serrado", 10, Ataque.rajada, Ataque.rajadaAvancado);
-    public static EquipamentoAtaque adagaLaser = new EquipamentoAtaque("Adaga Laser", 10, Ataque.apunhalada, Ataque.apunhaladaAvancado);
-    public static EquipamentoAtaque arcoFlecha = new EquipamentoAtaque("Arco e Flecha", 10, Ataque.flecha, Ataque.flechaMagica);
-    public static EquipamentoAtaque bestaAutomatica = new EquipamentoAtaque("Besta Automática", 10, Ataque.flechaMagica, Ataque.flechaVenenosa);
-    public static EquipamentoAtaque rifleChoque= new EquipamentoAtaque("Rlife de choque", 10, Ataque.tiroStun, Ataque.tiroConcentrado);
-    public static EquipamentoAtaque espadaEnergia = new EquipamentoAtaque("Espada de energia", 10, Ataque.Investida, Ataque.impactoEletrico );
-    public static EquipamentoAtaque granadasFragmentacao= new EquipamentoAtaque("Granadas de fragmentação", 10, Ataque.granada, Ataque.cozinharGranada);
-    public static EquipamentoAtaque bastaoEletrico= new EquipamentoAtaque("Bastão Elétrico", 10, Ataque.Investida, Ataque.impactoEletrico);
-    public static EquipamentoAtaque lancaDeGalio = new EquipamentoAtaque("Lança de Gálio", 10, Ataque.apunhalada, Ataque.arremessoLanca);
-    public static EquipamentoAtaque espadaAncestralLendario= new EquipamentoAtaque("Espada Ancestral Lendária", 10, Ataque.ataqueAncestral, Ataque.fissuraAncestral);
-    public static EquipamentoAtaque escopetaCelestialLendaria= new EquipamentoAtaque("Escopeta Celestial Lendária", 10, Ataque.tiroCelestial, Ataque.bombardeioCelestial);
-    public static EquipamentoAtaque rifleDeVacuoLendario= new EquipamentoAtaque("Rifle de Vácuo Lendário", 10, Ataque.tiroVacuo, Ataque.gravidade30);
-    public static EquipamentoAtaque marteloPrimordialLendario= new EquipamentoAtaque("Martelo Primordial Lendário", 10, Ataque.impactoPrimordial, Ataque.terremotoPrimordial);
-    public static EquipamentoAtaque kusarigamaLendaria= new EquipamentoAtaque("Kusarigama Lendária", 10, Ataque.cortesOrientais, Ataque.rasgarTerreno);
+    public static EquipamentoAtaque pistolaLaser = new EquipamentoAtaque("Pistola A Laser", aleatorio.nextInt(1,11), Ataque.tiroConcentrado, Ataque.tiroAvancado);
+    public static EquipamentoAtaque escopetaCanoSerrado = new EquipamentoAtaque("Escopeta de cano Serrado", aleatorio.nextInt(1,11), Ataque.rajada, Ataque.rajadaAvancado);
+    public static EquipamentoAtaque adagaLaser = new EquipamentoAtaque("Adaga Laser", aleatorio.nextInt(1,11), Ataque.apunhalada, Ataque.apunhaladaAvancado);
+    public static EquipamentoAtaque arcoFlecha = new EquipamentoAtaque("Arco e Flecha", aleatorio.nextInt(1,11), Ataque.flecha, Ataque.flechaMagica);
+    public static EquipamentoAtaque bestaAutomatica = new EquipamentoAtaque("Besta Automática", aleatorio.nextInt(1,11), Ataque.flechaMagica, Ataque.flechaVenenosa);
+    public static EquipamentoAtaque rifleChoque= new EquipamentoAtaque("Rlife de choque", aleatorio.nextInt(1,11), Ataque.tiroStun, Ataque.tiroConcentrado);
+    public static EquipamentoAtaque espadaEnergia = new EquipamentoAtaque("Espada de energia", aleatorio.nextInt(1,11), Ataque.Investida, Ataque.impactoEletrico );
+    public static EquipamentoAtaque granadasFragmentacao= new EquipamentoAtaque("Granadas de fragmentação", aleatorio.nextInt(1,11), Ataque.granada, Ataque.cozinharGranada);
+    public static EquipamentoAtaque bastaoEletrico= new EquipamentoAtaque("Bastão Elétrico", aleatorio.nextInt(1,11), Ataque.Investida, Ataque.impactoEletrico);
+    public static EquipamentoAtaque lancaDeGalio = new EquipamentoAtaque("Lança de Gálio", aleatorio.nextInt(1,11), Ataque.apunhalada, Ataque.arremessoLanca);
+    public static EquipamentoAtaque espadaAncestralLendario= new EquipamentoAtaque("Espada Ancestral Lendária", aleatorio.nextInt(1,11), Ataque.ataqueAncestral, Ataque.fissuraAncestral);
+    public static EquipamentoAtaque escopetaCelestialLendaria= new EquipamentoAtaque("Escopeta Celestial Lendária", aleatorio.nextInt(1,11), Ataque.tiroCelestial, Ataque.bombardeioCelestial);
+    public static EquipamentoAtaque rifleDeVacuoLendario= new EquipamentoAtaque("Rifle de Vácuo Lendário", aleatorio.nextInt(1,11), Ataque.tiroVacuo, Ataque.gravidade30);
+    public static EquipamentoAtaque marteloPrimordialLendario= new EquipamentoAtaque("Martelo Primordial Lendário", aleatorio.nextInt(1,11), Ataque.impactoPrimordial, Ataque.terremotoPrimordial);
+    public static EquipamentoAtaque kusarigamaLendaria= new EquipamentoAtaque("Kusarigama Lendária", aleatorio.nextInt(1,11), Ataque.cortesOrientais, Ataque.rasgarTerreno);
 
     
     // ArrayList de todos os equipamentos de Ataque
     public static List<EquipamentoAtaque> EquipamentosAtaque = new ArrayList<>(Arrays.asList(pistolaLaser, escopetaCanoSerrado, adagaLaser, arcoFlecha,
-    bestaAutomatica, rifleChoque, espadaEnergia, granadasFragmentacao, bastaoEletrico, lancaDeGalio, espadaAncestralLendario, escopetaCelestialLendaria,
-    rifleDeVacuoLendario, marteloPrimordialLendario, kusarigamaLendaria));
+    bestaAutomatica, rifleChoque, espadaEnergia, granadasFragmentacao, bastaoEletrico, lancaDeGalio, espadaAncestralLendario));
 
-    
+    public static List<EquipamentoAtaque> EquipamentosAtaqueLendarios = new ArrayList<>(Arrays.asList(espadaAncestralLendario, escopetaCelestialLendaria,
+    rifleDeVacuoLendario, marteloPrimordialLendario, kusarigamaLendaria));
 
 }

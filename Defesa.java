@@ -135,22 +135,22 @@ public class Defesa {
         DefesasPlayer.add(x);
      }
 
-     public static void limparDefesasInimigos(){
-        DefesasPlayer.clear();
-     }
 
-     public static void adicionarDefesasInimigos(Defesa x, Defesa y, Defesa z){
+     public static void adicionarDefesasInimigos(Defesa x, Defesa y, Defesa z, Defesa a){
+        DefesasInimigos.clear();
         DefesasInimigos.add(x);
         DefesasInimigos.add(y);
         DefesasInimigos.add(z);
+        DefesasInimigos.add(a);
      }
 
-     public static void adicionarDefesasInimigos(Defesa v, Defesa w, Defesa x, Defesa y, Defesa z){
+     public static void adicionarDefesasInimigos(Defesa v, Defesa w, Defesa x, Defesa y, Defesa z, Defesa a){
         DefesasInimigos.add(v);
         DefesasInimigos.add(w);
         DefesasInimigos.add(x);
         DefesasInimigos.add(y);
         DefesasInimigos.add(z);
+        DefesasInimigos.add(a);
      }
 
 

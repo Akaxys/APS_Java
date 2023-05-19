@@ -5,17 +5,19 @@ public class Inimigo {
     private int vida;
     private int bonusAtaque;
     private int bonusDefesa;
-    private int dificuldade;
-
 
     
         // Construtor
-    public Inimigo(String nome, int pv){
+    public Inimigo(String nome, int bonus, int dificuldade){
         this.name = nome;
-        this.vida = pv;
+        this.bonusAtaque = (bonus * dificuldade);
+        this.bonusDefesa = (bonus * dificuldade);
+        
     }
 
-        // Nome
+    
+
+    // Nome
     public String getNome() {
         return name;
     }
@@ -46,14 +48,19 @@ public class Inimigo {
     public void setbonusDefesa(int bonusDefesa) {
         this.bonusDefesa += bonusDefesa; 
     }
-
-        // Dificuldade
-    public int getDificuldade() {
-        return dificuldade;
-    }
-    public void setDificuldade(int dif){
-        this.dificuldade = dif;
-    }
     
+
+    public boolean morte() throws InterruptedException {
+        
+        boolean resultado = false;
+        
+        if (JavaQuest.enemy.getVida() <= 0) {
+            System.out.println("\n" + JavaQuest.enemy.getNome() + " foi derrotado");
+            Thread.sleep(1000);
+            resultado = true;
+        }
+
+        return resultado;
+    }
 
 }

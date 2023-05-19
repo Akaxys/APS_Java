@@ -9,7 +9,6 @@ public class Personagem {
     private int pocaoMana = 3;
 
 
-    
     //constructor
     public Personagem(String n){
       this.name = n;
@@ -18,7 +17,6 @@ public class Personagem {
         this.vida = pv;
     }
 
-    
 
     // Nome
     public String getNome() {
@@ -88,7 +86,24 @@ public class Personagem {
     }
 
 
-    
+    public void morte() throws InterruptedException {
+        if (JavaQuest.player.getVida() <= 0) {
+            System.out.println("\n" + JavaQuest.player.getNome() + " morreu...");
+            Thread.sleep(1000);
+            System.out.println("\tFIM DE JOGO!");
+            System.exit(0);
+        }
+    }
+
+
+    public void fadiga() throws InterruptedException {
+        if (JavaQuest.player.getVigor() <= 0) {
+            System.out.println("\n" + JavaQuest.player.getNome() + " acabou morrendo fadigado(a)");
+            Thread.sleep(1000);
+            System.out.println("\tFIM DE JOGO!");
+            System.exit(0);
+        }
+    }
     
 
 
