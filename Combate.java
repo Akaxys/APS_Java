@@ -15,7 +15,7 @@ public class Combate {
     // Turno do Personagem
     public static void turnoAliado() throws InterruptedException{
         
-        System.out.println("Seu Turno");
+        System.out.println("\nSeu Turno!");
 
         Thread.sleep(1500);
       
@@ -89,7 +89,7 @@ public class Combate {
             else {
                 System.out.println("O " + JavaQuest.enemy.getNome() + " tentou desviar mas acabou falhando miseravelmente");
                 System.out.println("O ataque " + Ataque.AtaquesPlayer.get(opcaoPlayer).getNome() + " causou " + (Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusAtaque()) + " no " + JavaQuest.enemy.getNome());
-                JavaQuest.enemy.setVida((JavaQuest.enemy.getVida() + JavaQuest.enemy.getbonusDefesa()) - (Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusAtaque()));            
+                JavaQuest.enemy.setVida(JavaQuest.enemy.getVida() - (Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusAtaque()));            
             }
         }
 
@@ -100,7 +100,7 @@ public class Combate {
             if (probabilidadePlayer <= Ataque.AtaquesPlayer.get(opcaoPlayer).getProbabilidade()) {
 
                 if (probabilidadeEnemy <= Defesa.DefesasInimigos.get(opcaoEnemy).getProbabilidade()) {
-                    System.out.println("O inimigo usou " + Defesa.DefesasInimigos.get(opcaoEnemy).getNome());
+                    System.out.println("O inimigo usou " + Defesa.DefesasInimigos.get(opcaoEnemy).getNome() + " que defende " + (Defesa.DefesasInimigos.get(opcaoEnemy).getDefesa() + JavaQuest.enemy.getbonusDefesa()) + " de dano!");
 
                     if (Defesa.DefesasInimigos.get(opcaoEnemy).getDefesa() + JavaQuest.enemy.getbonusDefesa() >= Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusDefesa()){
                         System.out.println(JavaQuest.enemy.getNome() + " conseguiu defender seu ataque por completo");
@@ -109,7 +109,7 @@ public class Combate {
                     else {
                         Ataque.AtaquesPlayer.get(opcaoPlayer).getFraseSucesso();
                         System.out.println("Dano causado ao " + JavaQuest.enemy.getNome() + ": " + ((Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusAtaque()) - (Defesa.DefesasInimigos.get(opcaoEnemy).getDefesa() + JavaQuest.enemy.getbonusDefesa())));
-                        JavaQuest.enemy.setVida(JavaQuest.enemy.getVida() - (Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusDefesa()) - (Defesa.DefesasInimigos.get(opcaoEnemy).getDefesa() + JavaQuest.enemy.getbonusDefesa()));
+                        JavaQuest.enemy.setVida(JavaQuest.enemy.getVida(), (Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusDefesa()) - (Defesa.DefesasInimigos.get(opcaoEnemy).getDefesa() + JavaQuest.enemy.getbonusDefesa()));
                     }
 
                 }
@@ -117,7 +117,7 @@ public class Combate {
                 else {
                     System.out.println("O " + JavaQuest.enemy.getNome() + " tentou se defender usando " + Defesa.DefesasInimigos.get(opcaoEnemy).getNome() + " mas acabou não tendo sucesso!");
                     System.out.println("Dano causado ao " + JavaQuest.enemy.getNome() + ": " + ((Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusAtaque())));
-                    JavaQuest.enemy.setVida(JavaQuest.enemy.getVida() - (Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusAtaque()));
+                    JavaQuest.enemy.setVida(JavaQuest.enemy.getVida(), (Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusAtaque()));
                 }
 
             }
@@ -257,7 +257,6 @@ public class Combate {
     }
     
 
-
     public static void PocaoCura(int limite) throws InterruptedException {
 
         if ((JavaQuest.player.getVida() < 15) && (JavaQuest.player.getPocaoCura() > 0)) {
@@ -291,7 +290,6 @@ public class Combate {
         Thread.sleep(1500);
     
     }
-
 
 
     public static void PocaoMana(int limite) throws InterruptedException {
@@ -329,7 +327,6 @@ public class Combate {
     }
 
 
-
     public static void Batalha(int turnos, int vidaMaximaPlayer, int manaMaximaPlayer) throws InterruptedException {
 
 
@@ -358,5 +355,14 @@ public class Combate {
         }
 
     }
+
+
+    public static void Reset(int pv , int mana, int vigor) {
+        JavaQuest.player.setVida(pv);
+        JavaQuest.player.setMana(mana);
+        JavaQuest.player.setVigor(vigor);
+        System.out.println(JavaQuest.player.getNome() + " descansou depois de ter derrotado " + JavaQuest.enemy.getNome());
+    }
+
 
 }

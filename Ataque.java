@@ -171,7 +171,7 @@ public class Ataque {
       Investida, cozinharGranada, granada,impactoEletrico, arremessoLanca, ataqueAncestral, fissuraAncestral, tiroCelestial,
       bombardeioCelestial, tiroVacuo, gravidade30, impactoPrimordial, terremotoPrimordial, cortesOrientais, rasgarTerreno));
 
-      public static List<Ataque> AtaquesPlayer = new ArrayList<>(Arrays.asList(soco, rasteira, chute));
+      public static List<Ataque> AtaquesPlayer = new ArrayList<>(Arrays.asList(soco, rasteira, chute, tiro));
 
       public static List<Ataque> AtaquesInimigos = new ArrayList<Ataque>();
 

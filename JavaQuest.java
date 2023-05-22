@@ -13,13 +13,18 @@ public class JavaQuest {
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("\tBem-Vindo(a) ao JavaQuest!");
-        System.out.println("A última arvore corre perigo, se apresse para salva-la!");
+        System.out.println("Deseja jogar em qual dificuldade?\n[1] Fácil\n[2] Médio\n[3] Dificil\n[4] Insano");
+        easyOrHard = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Modo de jogo alterado!");
+        Thread.sleep(1000);
+        
+        System.out.println("\nA última árvore do vale corre perigo, se apresse para salva-la!");
 
         System.out.println("Digite o nome do seu personagem: ");
         String nome_player = scanner.nextLine();
         
-        System.out.println("Deseja jogar em qual dificuldade?\n[1] Fácil\n[2] Médio\n[3] Dificil\n[4] Insano");
-        easyOrHard = scanner.nextInt();
+        
 
 
         player = new Personagem(nome_player);
@@ -34,12 +39,15 @@ public class JavaQuest {
         player.setVigor(30);
        
         // ------------------------------------------------------------------------------ //
-
+        
         enemy = inimigo1;
+        System.out.println(player.getNome() + " encontrou o " + enemy.getNome() + " que se apronta para lutar!");
         enemy.setVida(30);
         Ataque.adicionarAtaquesInimigos(Ataque.soco, Ataque.chute, Ataque.rasteira, Ataque.tiro);
         Combate.Batalha(1,30,30);
 
+        Armeiro.EquiparAtaque(3, EquipamentoAtaque.EquipamentosAtaque);
+        Combate.Reset(50, 50, 50);
 
         enemy = inimigo2;
         enemy.setVida(50);
@@ -61,7 +69,7 @@ public class JavaQuest {
         Defesa.adicionarDefesasInimigos(Defesa.armaduraAvancada, Defesa.defesaBasica, Defesa.esquiva, Defesa.barreiraAvancada);
         Combate.Batalha(1,100,100);
 
-        
+
         enemy = inimigo5;
         enemy.setVida(300);
         Ataque.adicionarAtaquesInimigos(Ataque.ataqueAncestral, Ataque.tiroVacuo, Ataque.cortesOrientais, Ataque.impactoPrimordial,Ataque.tiroCelestial, Ataque.fissuraAncestral);
