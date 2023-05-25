@@ -42,23 +42,10 @@ public class Armeiro {
         }
         
         JavaQuest.player.setbonusAtaque(JavaQuest.player.getbonusAtaque() + EquipamentoSorteados.get(escolhaPlayer).getBonusAtaque());
-        if (Ataque.AtaquesPlayer.size() < 8) {
             
-            Ataque.AtaquesPlayer.add((Ataque) EquipamentoSorteados.get(escolhaPlayer).getAtaque1());
-            Ataque.AtaquesPlayer.add((Ataque) EquipamentoSorteados.get(escolhaPlayer).getAtaque2());
+        Ataque.AtaquesPlayer.add((Ataque) EquipamentoSorteados.get(escolhaPlayer).getAtaque1());
+        Ataque.AtaquesPlayer.add((Ataque) EquipamentoSorteados.get(escolhaPlayer).getAtaque2());
         
-        }
-        
-        else {
-            
-            for (int i = 0; i < 9 - Ataque.AtaquesPlayer.size(); i++){
-                Ataque.AtaquesPlayer.remove(i);
-            }
-            
-            Ataque.AtaquesPlayer.add((Ataque) EquipamentoSorteados.get(escolhaPlayer).getAtaque1());
-            Ataque.AtaquesPlayer.add((Ataque) EquipamentoSorteados.get(escolhaPlayer).getAtaque2());
-        
-        }
 
         Thread.sleep(1000);
 
@@ -123,14 +110,14 @@ public class Armeiro {
 
     public static boolean EscolhaEquipamento() {
         boolean resp; 
-        System.out.println("Deseja desbloquear um equipameto de ataque ou um equipamento de defesa");
+        System.out.println("Deseja desbloquear um equipamento de ataque[ATK] ou um equipamento de defesa[DEF]?");
 
         while (true) {
             String eq = (teclado.nextLine()).toUpperCase();
-            if ((eq.equals("ATAQUE")) || (eq.equals("ATK"))) {
+            if ((eq.equals("ATAQUE")) || (eq.equals("ATK")) || (eq.equals("A"))) {
                 resp = true; break;
             }
-            else if ((eq.equals("DEFESA")) || (eq.equals("DEF"))) {
+            else if ((eq.equals("DEFESA")) || (eq.equals("DEF")) || (eq.equals("D"))) {
                 resp = false; break;
             }
             else {

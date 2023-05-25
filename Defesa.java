@@ -10,6 +10,7 @@ public class Defesa {
     private String fraseFalha;
 
     Scanner teclado = new Scanner(System.in); 
+    static Random aleatorio = new Random();
 
 
         // Construtor
@@ -77,46 +78,46 @@ public class Defesa {
         public static Defesa defesaBasica = new Defesa("Defesa básica", 3, 1, 90 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
         JavaQuest.player.getNome() + " concluiu a defesa com sucesso", JavaQuest.player.getNome() + " fracassou na defesa!");
 
-        public static Defesa levantarEscudo = new Defesa("Levantar Escudo", 5, 5, 75 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
+        public static Defesa levantarEscudo = new Defesa("Levantar Escudo", 5, 4, 75 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
         JavaQuest.player.getNome() + " levantou o escudo no tempo certo", JavaQuest.player.getNome() + " não levantou o escudo a tempo!");
 
         public static Defesa esquiva = new Defesa("Esquiva", 0, 1, 90 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
         "Concluiu a esquiva com sucesso", JavaQuest.player.getNome() + "  scorregou enquanto tentava esquivar!");
 
-        public static Defesa barreira = new Defesa("Conjurar Barreira", 20, 10, 60 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
+        public static Defesa barreira = new Defesa("Conjurar Barreira", aleatorio.nextInt(6,13), 10, 60 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
         JavaQuest.player.getNome() + "  conjurou a barreira a tempo", JavaQuest.player.getNome() + "  foi impedido de conjurar barreira!");
 
         public static Defesa meditacao = new Defesa("Paz Interior", 50, 3, 10 - (Inimigo.dificuldade(JavaQuest.easyOrHard)/5), 
         JavaQuest.player.getNome() + "  conseguiu meditar e se concentrar para o próximo Defesa", JavaQuest.player.getNome() + "  teve sua paz afetada e não conseguiu meditar!");
 
-        public static Defesa barreiraAvancada = new Defesa("Conjurar Muralha", 30, 17, 60 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
+        public static Defesa barreiraAvancada = new Defesa("Conjurar Muralha", aleatorio.nextInt(8,13), 17, 60 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
         JavaQuest.player.getNome() + "  conjurou a barreira com perfeição!", JavaQuest.player.getNome() + "  se atrapalhou durante o processo!");
 
-        public static Defesa armaduraAvancada = new Defesa("Armadura Militar", 18, 9, 80 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
+        public static Defesa armaduraAvancada = new Defesa("Armadura Militar", aleatorio.nextInt(8,13), 9, 80 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
         "A nanotecnologia agiu com eficácia", "A nanotecnologia não foi ativada rapidamente");
 
-        public static Defesa defesaMagica = new Defesa("Proteção Mágica", 15, 8, 85 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
+        public static Defesa defesaMagica = new Defesa("Proteção Mágica", aleatorio.nextInt(6,15), 8, 85 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
         JavaQuest.player.getNome() + "  agiu como um mago profissional!", JavaQuest.player.getNome() + "  esqueceu as palavrinhas mágicas!");
 
-        public static Defesa defesaRapidaAvancada = new Defesa("Movimentos Agéis", 36, 18, 70 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
+        public static Defesa defesaRapidaAvancada = new Defesa("Movimentos Agéis", aleatorio.nextInt(6,13), 18, 70 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
         JavaQuest.player.getNome() + "  foi agil e concluiu a defesa com sucesso", JavaQuest.player.getNome() + "  caiu envergonhosamente enquanto tentava se defender!");
 
-        public static Defesa juggernaut = new Defesa("Esfera de proteção", 40, 12, 60 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
+        public static Defesa juggernaut = new Defesa("Esfera de proteção", aleatorio.nextInt(11,21), 9, 60 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
         "Esfera de proteção criada com successo", "Não conseguiu resistir ao Defesa!");
  
-        public static Defesa auraCosmica = new Defesa("Proteção Estelar", 80, 10, 80 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
+        public static Defesa auraCosmica = new Defesa("Proteção Estelar", aleatorio.nextInt(11,19), 16, 80 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
         JavaQuest.player.getNome() + "  se defendeu com sucesso", JavaQuest.player.getNome() + "  não conseguiu carregar a aura a tempo!");
 
-        public static Defesa armaduraEspectral = new Defesa("Defesa Espectral", 70, 15, 85 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
+        public static Defesa armaduraEspectral = new Defesa("Defesa Espectral", aleatorio.nextInt(11,19), 16, 85 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
         JavaQuest.player.getNome() + "  convocou espectros suficientes para a defesa", "Não conseguiu convocar espectros suficientes para a defesa!");
 
-        public static Defesa kryptoDefesa = new Defesa("Krypto Defesa", 60, 10, 90 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
+        public static Defesa kryptoDefesa = new Defesa("Krypto Defesa", aleatorio.nextInt(11,19), 16, 90 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
         "A Kryptonita agiu perfeitamente!", "A armadura crypto atrapalhou na defesa de Lorax!");
 
-        public static Defesa exoesqueleto = new Defesa("Imunidade Subatômica", 75, 10, 85 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
+        public static Defesa exoesqueleto = new Defesa("Imunidade Subatômica", aleatorio.nextInt(11,19), 16, 85 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
         "O exosqueleto agiu com eficácia", "O exoesqueleto não o deixou vulneravel a tempo!");
 
-        public static Defesa netherite = new Defesa("Blindagem de Netherite", 75, 15, 95 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
+        public static Defesa netherite = new Defesa("Blindagem de Netherite", aleatorio.nextInt(11,19), 16, 95 - Inimigo.dificuldade(JavaQuest.easyOrHard), 
         "A blindagem de Netherite  defendeu o Defesa", JavaQuest.player.getNome() + "  não percebeu o Defesa!");
 
         

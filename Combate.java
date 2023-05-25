@@ -72,7 +72,7 @@ public class Combate {
 
         Thread.sleep(1000);
         
-        System.out.println(JavaQuest.player.getNome() + " está escolhendo suas defesas...");
+        System.out.println(JavaQuest.enemy.getNome() + " está escolhendo suas defesas...");
         
         Thread.sleep(2000);
         
@@ -82,7 +82,7 @@ public class Combate {
 
         if (opcaoEnemy == Defesa.DefesasInimigos.indexOf(Defesa.esquiva)) {
             
-            if (probabilidadeEnemy > 50) {
+            if (probabilidadeEnemy >= 60) {
                 System.out.println("O " + JavaQuest.enemy.getNome() + " usou " + Defesa.esquiva.getNome() + " e desviou do seu golpe!");
             }
 
@@ -97,19 +97,19 @@ public class Combate {
             
             probabilidadePlayer = aleatorio.nextInt(101);
 
-            if (probabilidadePlayer <= Ataque.AtaquesPlayer.get(opcaoPlayer).getProbabilidade()) {
+            if (probabilidadePlayer < Ataque.AtaquesPlayer.get(opcaoPlayer).getProbabilidade()) {
 
                 if (probabilidadeEnemy <= Defesa.DefesasInimigos.get(opcaoEnemy).getProbabilidade()) {
                     System.out.println("O inimigo usou " + Defesa.DefesasInimigos.get(opcaoEnemy).getNome() + " que defende " + (Defesa.DefesasInimigos.get(opcaoEnemy).getDefesa() + JavaQuest.enemy.getbonusDefesa()) + " de dano!");
 
-                    if (Defesa.DefesasInimigos.get(opcaoEnemy).getDefesa() + JavaQuest.enemy.getbonusDefesa() >= Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusDefesa()){
+                    if (Defesa.DefesasInimigos.get(opcaoEnemy).getDefesa() + JavaQuest.enemy.getbonusDefesa() >= Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusAtaque()){
                         System.out.println(JavaQuest.enemy.getNome() + " conseguiu defender seu ataque por completo");
                     }
 
                     else {
                         Ataque.AtaquesPlayer.get(opcaoPlayer).getFraseSucesso();
                         System.out.println("Dano causado ao " + JavaQuest.enemy.getNome() + ": " + ((Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusAtaque()) - (Defesa.DefesasInimigos.get(opcaoEnemy).getDefesa() + JavaQuest.enemy.getbonusDefesa())));
-                        JavaQuest.enemy.setVida(JavaQuest.enemy.getVida(), (Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusDefesa()) - (Defesa.DefesasInimigos.get(opcaoEnemy).getDefesa() + JavaQuest.enemy.getbonusDefesa()));
+                        JavaQuest.enemy.setVida(JavaQuest.enemy.getVida(), (Ataque.AtaquesPlayer.get(opcaoPlayer).getDano() + JavaQuest.player.getbonusAtaque()) - (Defesa.DefesasInimigos.get(opcaoEnemy).getDefesa() + JavaQuest.enemy.getbonusDefesa()));
                     }
 
                 }
@@ -186,7 +186,7 @@ public class Combate {
                     break;
                 }
                 else {
-                    System.out.println("Você não tem mana suficiente para usar esse ataque!");
+                    System.out.println("Você está cansado demais para usar essa defesa!");
                 }
 
             }
@@ -209,7 +209,7 @@ public class Combate {
             else {
                 System.out.println("O " + JavaQuest.player.getNome() + " tentou desviar mas acabou falhando miseravelmente");
                 System.out.println("O ataque " + Ataque.AtaquesInimigos.get(opcaoEnemy).getNome() + " causou " + (Ataque.AtaquesInimigos.get(opcaoEnemy).getDano() + JavaQuest.enemy.getbonusAtaque()) + " de dano em " + JavaQuest.player.getNome());
-                JavaQuest.player.setVida((JavaQuest.player.getVida() + JavaQuest.player.getbonusDefesa()) - (Ataque.AtaquesInimigos.get(opcaoPlayer).getDano() + JavaQuest.enemy.getbonusAtaque()));
+                JavaQuest.player.setVida(JavaQuest.player.getVida() - (Ataque.AtaquesInimigos.get(opcaoEnemy).getDano() + JavaQuest.enemy.getbonusAtaque()));
             }
         }
 
