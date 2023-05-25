@@ -5,6 +5,8 @@ public class Inimigo {
     private int vida;
     private int bonusAtaque;
     private int bonusDefesa;
+    static int i;
+    
 
     
         // Construtor
@@ -49,6 +51,29 @@ public class Inimigo {
         this.bonusDefesa += bonusDefesa; 
     }
     
+    public static int dificuldade(int op) {
+         
+        switch (op) {
+            case 1:
+                i = 0;
+                break;
+            case 2:
+                i = 5;
+                break;
+            case 3:
+                i = 15;
+                break;
+            case 4:
+                i = 30;
+                break;
+            default:
+        }
+        
+        return i;
+        
+    }
+
+
 
     public boolean morte() throws InterruptedException {
         

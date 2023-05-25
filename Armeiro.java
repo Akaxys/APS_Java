@@ -67,7 +67,6 @@ public class Armeiro {
     }
 
 
-
     public static void EquiparDefesa(int quantidade, List<EquipamentoDefesa> lista) throws InterruptedException {
         List<EquipamentoDefesa> EquipamentoSorteados = new ArrayList<>(Arrays.asList());
 
@@ -121,4 +120,24 @@ public class Armeiro {
         
     }
 
+
+    public static boolean EscolhaEquipamento() {
+        boolean resp; 
+        System.out.println("Deseja desbloquear um equipameto de ataque ou um equipamento de defesa");
+
+        while (true) {
+            String eq = (teclado.nextLine()).toUpperCase();
+            if ((eq.equals("ATAQUE")) || (eq.equals("ATK"))) {
+                resp = true; break;
+            }
+            else if ((eq.equals("DEFESA")) || (eq.equals("DEF"))) {
+                resp = false; break;
+            }
+            else {
+                System.out.println("Por favor, insira uma opção válida.");
+            }    
+        }
+        
+        return resp;
+    }
 }

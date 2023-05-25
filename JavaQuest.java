@@ -5,7 +5,7 @@ public class JavaQuest {
 
     public static Personagem player;
     public static Inimigo enemy;
-    static private int easyOrHard;
+    static int easyOrHard;
 
 
     public static void main(String[] args) throws InterruptedException {
@@ -13,26 +13,26 @@ public class JavaQuest {
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("\tBem-Vindo(a) ao JavaQuest!");
+        System.out.println("Digite o nome do seu personagem: ");
+        String nome_player = scanner.nextLine();
+        Thread.sleep(750);
+
         System.out.println("Deseja jogar em qual dificuldade?\n[1] Fácil\n[2] Médio\n[3] Dificil\n[4] Insano");
         easyOrHard = scanner.nextInt();
         scanner.nextLine();
         System.out.println("Modo de jogo alterado!");
-        Thread.sleep(1000);
+        Thread.sleep(750);
         
+        System.out.println("Em um mundo distante da realidade presente, no ano de 2115, a escassez da vegetação se torna um fator dominante no mundo.");
+
         System.out.println("\nA última árvore do vale corre perigo, se apresse para salva-la!");
 
-        System.out.println("Digite o nome do seu personagem: ");
-        String nome_player = scanner.nextLine();
-        
-        
-
-
         player = new Personagem(nome_player);
-        Inimigo inimigo1 = new Inimigo("Soldado", 1, easyOrHard);
-        Inimigo inimigo2 = new Inimigo("Sargento", 2, easyOrHard);
-        Inimigo inimigo3 = new Inimigo("Tenente", 4, easyOrHard);
-        Inimigo inimigo4 = new Inimigo("Major", 6, easyOrHard);
-        Inimigo inimigo5 = new Inimigo("General", 12, easyOrHard);
+        Inimigo inimigo1 = new Inimigo("Soldado", 0, easyOrHard);
+        Inimigo inimigo2 = new Inimigo("Sargento", 4, easyOrHard);
+        Inimigo inimigo3 = new Inimigo("Tenente", 8, easyOrHard);
+        Inimigo inimigo4 = new Inimigo("Major", 12, easyOrHard);
+        Inimigo inimigo5 = new Inimigo("General", 20, easyOrHard);
     
         player.setVida(30);
         player.setMana(30);
@@ -44,10 +44,17 @@ public class JavaQuest {
         System.out.println(player.getNome() + " encontrou o " + enemy.getNome() + " que se apronta para lutar!");
         enemy.setVida(30);
         Ataque.adicionarAtaquesInimigos(Ataque.soco, Ataque.chute, Ataque.rasteira, Ataque.tiro);
+        
         Combate.Batalha(1,30,30);
-
-        Armeiro.EquiparAtaque(3, EquipamentoAtaque.EquipamentosAtaque);
         Combate.Reset(50, 50, 50);
+        
+        if (Armeiro.EscolhaEquipamento()) {
+            Armeiro.EquiparAtaque(3, EquipamentoAtaque.EquipamentosAtaque);
+        }
+        else {
+            Armeiro.EquiparDefesa(3, EquipamentoDefesa.EquipamentosDefesa);
+        }
+
 
         enemy = inimigo2;
         enemy.setVida(50);
@@ -55,6 +62,12 @@ public class JavaQuest {
         Defesa.adicionarDefesasInimigos(Defesa.armaduraAvancada, Defesa.defesaBasica, Defesa.esquiva, Defesa.barreiraAvancada);
         Combate.Batalha(1,50,50);
 
+        if (Armeiro.EscolhaEquipamento()) {
+            Armeiro.EquiparAtaque(3, EquipamentoAtaque.EquipamentosAtaque);
+        }
+        else {
+            Armeiro.EquiparDefesa(3, EquipamentoDefesa.EquipamentosDefesa);
+        }
 
         enemy = inimigo3;
         enemy.setVida(90);
@@ -62,6 +75,12 @@ public class JavaQuest {
         Defesa.adicionarDefesasInimigos(Defesa.defesaMagica, Defesa.defesaRapidaAvancada, Defesa.esquiva, Defesa.juggernaut);        
         Combate.Batalha(1,75,75);
 
+        if (Armeiro.EscolhaEquipamento()) {
+            Armeiro.EquiparAtaque(3, EquipamentoAtaque.EquipamentosAtaque);
+        }
+        else {
+            Armeiro.EquiparDefesa(3, EquipamentoDefesa.EquipamentosDefesa);
+        }
 
         enemy = inimigo4;
         enemy.setVida(150);
@@ -69,6 +88,12 @@ public class JavaQuest {
         Defesa.adicionarDefesasInimigos(Defesa.armaduraAvancada, Defesa.defesaBasica, Defesa.esquiva, Defesa.barreiraAvancada);
         Combate.Batalha(1,100,100);
 
+        if (Armeiro.EscolhaEquipamento()) {
+            Armeiro.EquiparAtaque(2, EquipamentoAtaque.EquipamentosAtaqueLendarios);
+        }
+        else {
+            Armeiro.EquiparDefesa(2, EquipamentoDefesa.EquipamentosDefesaLendarios);
+        }
 
         enemy = inimigo5;
         enemy.setVida(300);

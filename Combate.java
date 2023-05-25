@@ -17,25 +17,25 @@ public class Combate {
         
         System.out.println("\nSeu Turno!");
 
-        Thread.sleep(1500);
+        Thread.sleep(1000);
       
         System.out.println("Seus Pontos de Vida: " + JavaQuest.player.getVida());
         System.out.println("Pontos de vida do " + JavaQuest.enemy.getNome() + ": " + JavaQuest.enemy.getVida());
 
-        Thread.sleep(3000);
-
-        System.out.println("Qual ataque deseja usar?");
-        
         Thread.sleep(2000);
+
+        System.out.println("\nQual ataque deseja usar?");
+        
+        Thread.sleep(1000);
         
         for (i=0; i<Ataque.AtaquesPlayer.size(); i++) {
             System.out.println("[" + i + "] " + (Ataque.AtaquesPlayer.get(i)).getNome() + ": Causa " + ((Ataque.AtaquesPlayer.get(i)).getDano() + JavaQuest.player.getbonusAtaque()) + " de dano no inimigo");
-            Thread.sleep(750);
+            Thread.sleep(600);
         }
 
         System.out.println("Seus Pontos de Mana: " + JavaQuest.player.getMana());
 
-        Thread.sleep(1000);
+        Thread.sleep(600);
         
         while (true) {
             
@@ -47,7 +47,7 @@ public class Combate {
                     opcaoPlayer = teclado.nextInt();
                     break;
                 } catch(InputMismatchException e){
-                    System.out.println("Valor Inválido!");
+                    System.out.println("Por favor, digite um número.");
                     teclado.next();
                 }
 
@@ -72,7 +72,7 @@ public class Combate {
 
         Thread.sleep(1000);
         
-        System.out.println("Inimigo está escolhendo suas defesas...");
+        System.out.println(JavaQuest.player.getNome() + " está escolhendo suas defesas...");
         
         Thread.sleep(2000);
         
@@ -133,7 +133,6 @@ public class Combate {
         }
 
 
-
     public static void TurnoInimigo() throws InterruptedException {
 
         System.out.println("\nTurno do Inimigo!");
@@ -143,11 +142,11 @@ public class Combate {
         System.out.println("Pontos de vida do " + JavaQuest.enemy.getNome() + ": " + JavaQuest.enemy.getVida());
         Thread.sleep(1500);
 
-        System.out.println("Inimigo está escolhendo seus ataques...");
+        System.out.printf("\nO %s está escolhendo seus ataques...", JavaQuest.enemy.getNome());
         opcaoEnemy = aleatorio.nextInt(0, Ataque.AtaquesInimigos.size());
-        Thread.sleep(1000);
+        Thread.sleep(1500);
 
-        System.out.println("Qual movimento de defesa deseja usar?");
+        System.out.println("\nQual movimento de defesa deseja usar?");
         Thread.sleep(1000);
 
         for (i = 0; i<Defesa.DefesasPlayer.size(); i++) {
@@ -156,7 +155,7 @@ public class Combate {
                 System.out.println("[" + i + "] " + Defesa.DefesasPlayer.get(i).getNome() + ": esquiva de um ataque inimigo.");
             }
             else{
-                System.out.println("[" + i + "] " + Defesa.DefesasPlayer.get(i).getNome() + ": defende " + Defesa.DefesasPlayer.get(i).getDefesa() + " de dano do ataque inimigo");
+                System.out.println("[" + i + "] " + Defesa.DefesasPlayer.get(i).getNome() + ": defende " + (Defesa.DefesasPlayer.get(i).getDefesa() + JavaQuest.player.getbonusDefesa()) + " de dano do ataque inimigo");
             }
             Thread.sleep(750);
 
@@ -209,7 +208,7 @@ public class Combate {
 
             else {
                 System.out.println("O " + JavaQuest.player.getNome() + " tentou desviar mas acabou falhando miseravelmente");
-                System.out.println("O ataque " + Ataque.AtaquesInimigos.get(opcaoEnemy).getNome() + " causou " + (Ataque.AtaquesInimigos.get(opcaoEnemy).getDano() + JavaQuest.enemy.getbonusAtaque()) + " no " + JavaQuest.player.getNome());
+                System.out.println("O ataque " + Ataque.AtaquesInimigos.get(opcaoEnemy).getNome() + " causou " + (Ataque.AtaquesInimigos.get(opcaoEnemy).getDano() + JavaQuest.enemy.getbonusAtaque()) + " de dano em " + JavaQuest.player.getNome());
                 JavaQuest.player.setVida((JavaQuest.player.getVida() + JavaQuest.player.getbonusDefesa()) - (Ataque.AtaquesInimigos.get(opcaoPlayer).getDano() + JavaQuest.enemy.getbonusAtaque()));
             }
         }
@@ -230,7 +229,7 @@ public class Combate {
                     }
                     
                     else {
-                        System.out.println("Dano Total: " + ((Ataque.AtaquesInimigos.get(opcaoEnemy).getDano() + JavaQuest.enemy.getbonusAtaque()) - (Defesa.DefesasPlayer.get(opcaoPlayer).getDefesa() + JavaQuest.player.getbonusDefesa())));
+                        System.out.println("Dano total recebido: " + ((Ataque.AtaquesInimigos.get(opcaoEnemy).getDano() + JavaQuest.enemy.getbonusAtaque()) - (Defesa.DefesasPlayer.get(opcaoPlayer).getDefesa() + JavaQuest.player.getbonusDefesa())));
                         JavaQuest.player.setVida(JavaQuest.player.getVida(), ((Ataque.AtaquesInimigos.get(opcaoEnemy).getDano() + JavaQuest.enemy.getbonusAtaque()) - (Defesa.DefesasPlayer.get(opcaoPlayer).getDefesa() + JavaQuest.player.getbonusDefesa())));
                     }
 
@@ -238,7 +237,7 @@ public class Combate {
 
                 else {
                     System.out.println(Defesa.DefesasPlayer.get(opcaoPlayer).getFraseFalha());
-                    System.out.println("Dano Total: " + (Ataque.AtaquesInimigos.get(opcaoEnemy).getDano() + JavaQuest.enemy.getbonusAtaque()));
+                    System.out.println("Dano total recebido: " + (Ataque.AtaquesInimigos.get(opcaoEnemy).getDano() + JavaQuest.enemy.getbonusAtaque()));
                     JavaQuest.player.setVida(JavaQuest.player.getVida(), (Ataque.AtaquesInimigos.get(opcaoEnemy).getDano() + JavaQuest.enemy.getbonusAtaque()));
                         
                 }
@@ -283,7 +282,7 @@ public class Combate {
             }
         }
 
-        else if ((JavaQuest.player.getVida() < 15) || (JavaQuest.player.getPocaoCura() == 0)) {
+        else if ((JavaQuest.player.getVida() < 15) && (JavaQuest.player.getPocaoCura() == 0)) {
             System.out.println(JavaQuest.player.getNome() + ", sua vida está baixa mas você não tem poções de cura.");
         }
 
